@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Sphere</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar card">
+      <div class="brand">
+        <img src="Weather-icon.jpeg" alt="Weather Sphere logo" class="logo" />
+        <div>
+          <span class="brand-name">Weather Sphere</span>
+          <span class="brand-tag">Forecast made simple</span>
+        </div>
+      </div>
+      <form class="search-form" id="searchForm">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Search city, e.g. London"
+          aria-label="Search city"
+          autocomplete="off"
+        />
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+      </form>
+    </header>
+
+    <main>
+      <section class="hero section-fade">
+        <div class="hero-card card">
+          <div class="hero-top">
+            <div>
+              <p class="eyebrow">Current weather</p>
+              <h1 id="cityName">San Francisco</h1>
+              <p id="localTime" class="subtext">Tuesday • 04:28 PM</p>
+            </div>
+            <div class="weather-badge" id="weatherStatus">Clear</div>
+          </div>
+
+          <div class="hero-body">
+            <div class="temperature-group">
+              <p class="temperature" id="temperature">18°C</p>
+              <div class="weather-icon">
+                <i id="currentIcon" class="fa-solid fa-sun"></i>
+              </div>
+            </div>
+            <p class="weather-description" id="weatherDescription">Sunny with gentle breeze</p>
+          </div>
+
+          <div class="hero-details" id="heroDetails">
+            <div class="detail">
+              <p>Feels like</p>
+              <span id="feelsLike">17°C</span>
+            </div>
+            <div class="detail">
+              <p>Today’s high</p>
+              <span id="highTemp">21°C</span>
+            </div>
+            <div class="detail">
+              <p>Today’s low</p>
+              <span id="lowTemp">14°C</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="highlights section-fade">
+        <div class="section-card card">
+          <div class="section-heading">
+            <h2>Weather Highlights</h2>
+            <p class="section-copy">A quick summary of the most important conditions for your city.</p>
+          </div>
+          <div class="highlights-grid" id="highlightsGrid"></div>
+        </div>
+      </section>
+
+      <section class="forecast section-fade">
+        <div class="section-card card">
+          <div class="section-heading">
+            <h2>5-Day Forecast</h2>
+            <p class="section-copy">Plan ahead with a clean five-day outlook.</p>
+          </div>
+          <div class="forecast-grid" id="forecastRow"></div>
+        </div>
+      </section>
+
+      <section class="chart-map section-fade">
+        <div class="chart-card card">
+          <div class="section-header">
+            <div>
+              <h2>5-Day Temperature Trend</h2>
+              <p class="section-copy">Interactive chart updated for every city search.</p>
+            </div>
+          </div>
+          <canvas id="tempChart" height="280"></canvas>
+        </div>
+
+        <div class="map-card card">
+          <div class="section-header">
+            <div>
+              <h2>Location Map</h2>
+              <p class="section-copy">Current city coordinates with a marker and popup.</p>
+            </div>
+          </div>
+          <div id="map" class="map-container"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
